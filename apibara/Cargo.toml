@@ -1,0 +1,23 @@
+[package]
+name = "apibara-sdk"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tonic = "0.8.3"
+apibara-starknet = { git = "https://github.com/apibara/apibara" }
+apibara-client-protos = { path = "../protos" }
+tokio = { version = "1.20.1", features = ["full"] }
+futures-util = "0.3.26"
+hex = "0.4.3"
+hex-literal = "0.3.4"
+tokio-stream = "0.1.11"
+log = "0.4.17"
+env_logger = "0.10.0"
+starknet = { git = "https://github.com/xJonathanLEI/starknet-rs" }
+num-bigint = "0.4.3"
+sqlite = "0.30.3"
+futures = "0.3.26"
+num-traits = "0.2.15"
