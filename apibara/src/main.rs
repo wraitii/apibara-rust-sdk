@@ -122,54 +122,6 @@ async fn do_stuff(mut stream: ApibaraClient) -> Result<(), Box<dyn Error>> {
             }
         }
     }
-        
-        /*
-        logger.debug("received message")
-        self._retry_count = 0
-        if message.data is not None:
-            assert (
-                len(message.data.data) <= 1
-            ), "indexer runner requires batch_size == 1"
-
-            # invalidate any pending data, if any
-            if pending_received and previous_end_cursor is not None:
-                self._indexer_storage.invalidate(previous_end_cursor)
-
-            is_pending = message.data.finality == DataFinality.DATA_STATUS_PENDING
-            pending_received = is_pending
-
-            end_cursor = message.data.end_cursor
-            cursor = message.data.cursor
-            for batch in message.data.data:
-                with self._indexer_storage.create_storage_for_data(
-                    message.data.end_cursor
-                ) as storage:
-                    decoded_data = indexer.decode_data(batch)
-                    info = Info(
-                        context=ctx,
-                        storage=storage,
-                        cursor=cursor,
-                        end_cursor=cursor,
-                    )
-                    if is_pending:
-                        await indexer.handle_pending_data(info, decoded_data)
-                    else:
-                        await indexer.handle_data(info, decoded_data)
-                    # TODO: check if user updated filter
-
-            if not is_pending:
-                previous_end_cursor = message.data.end_cursor
-
-        elif message.invalidate is not None:
-            with self._indexer_storage.create_storage_for_invalidate(
-                message.invalidate.cursor
-            ) as storage:
-                cursor = message.invalidate.cursor
-                info = Info(
-                    context=ctx, storage=storage, cursor=cursor, end_cursor=cursor
-                )
-                await indexer.handle_invalidate(info, cursor)
-            previous_end_cursor = message.invalidate.cursor */
     println!("End of stream");
     Ok(())
 }
